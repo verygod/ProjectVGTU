@@ -43,8 +43,9 @@
           Admin
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Users</a>
-          <a class="dropdown-item" href="#">Another action</a>
+          <a class="dropdown-item" href="{{ route('users.index') }}">Users</a>
+          <a class="dropdown-item" href="{{ route('permissions.index') }}">Permissions</a>
+          <a class="dropdown-item" href="{{ route('roles.index') }}">Roles</a>
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="#">Something else here</a>
         </div>
