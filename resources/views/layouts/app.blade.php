@@ -23,9 +23,9 @@
     </style>
 </head>
 <body>
-    <div id="app">
-
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<div id="app">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container">
   <a class="navbar-brand" href="{{ url('/') }}">{{ config('app.name', 'Laravel') }}</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -47,7 +47,7 @@
           <a class="dropdown-item" href="{{ route('permissions.index') }}">Permissions</a>
           <a class="dropdown-item" href="{{ route('roles.index') }}">Roles</a>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Something else here</a>
+          <a class="dropdown-item" href="#">Funkcijos</a>
         </div>
       </li>
         @endguest
@@ -85,9 +85,26 @@
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
     </form> --}}
   </div>
+  </div>
 </nav>
 
+
+
+
+
+      <?php if(Session::has('flash_message')): ?>
+        <div class="alert alert-success alert-dismissible fade show col-md-4 mt-4 mx-auto" role="alert">
+            <strong> <?php echo session('flash_message'); ?></strong>
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+      <?php endif; ?> 
+      
+      @include ('layouts.error')
+
         @yield('content')
+
     </div>
 
     <!-- Scripts -->

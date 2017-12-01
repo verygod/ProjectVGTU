@@ -26,7 +26,7 @@ class PermissionController extends Controller {
     public function index() {
         $permissions = Permission::all(); //Get all permissions
         $roles = Role::get();
-        return view('admin.users.permissions')->with('permissions', $permissions)->with('roles', $roles);
+        return view('admin.permissions.index')->with('permissions', $permissions)->with('roles', $roles);
     }
 
     /**
@@ -36,7 +36,7 @@ class PermissionController extends Controller {
     */
     public function create() {
         $roles = Role::get(); //Get all roles
-        return view('admin.permissions')->with('roles', $roles);
+        return view('admin.permissions.index')->with('roles', $roles);
     }
 
     /**
@@ -80,7 +80,7 @@ class PermissionController extends Controller {
     * @return \Illuminate\Http\Response
     */
     public function show($id) {
-        return redirect('admin.permissions');
+        return redirect('admin.permissions.index');
     }
 
     /**
@@ -91,7 +91,7 @@ class PermissionController extends Controller {
     */
     public function edit($id) {
         $permission = Permission::findOrFail($id);
-        return view('admin.permissions', compact('permission'));
+        return view('admin.permissions.edit', compact('permission'));
     }
 
     /**

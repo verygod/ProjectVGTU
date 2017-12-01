@@ -29,7 +29,7 @@ class UserController extends Controller {
     public function index() {
     //Get all users and pass it to the view
         $users = User::all();
-        return view('admin.users.users')->with('users', $users);
+        return view('admin.users.index')->with('users', $users);
     }
 
     /**
@@ -70,8 +70,7 @@ class UserController extends Controller {
         }
     //Redirect to the users.index view and display message
         return redirect()->route('users.index')
-            ->with('flash_message',
-             'User successfully added.');
+            ->with('flash_message','User successfully added.');
     }
 
     /**

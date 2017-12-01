@@ -12,17 +12,16 @@
         <div class="card-header text-white bg-success mb-3">
           Permissions
         </div>
+
+        
         <div class="card-body">
-          <ul>
-            @foreach ($permissions as $permission)
-            <li>{{ $permission->name }}</li>
-            @endforeach
-          </ul>
+        <div class="row">
+        <div class="col-md-6">
+       
+        {!! Form::open(['route' => 'permissions.store', 'method' => 'post', 'class' => 'form-group']) !!}
+        {!! Form::text('name', '', array('class' => 'form-control')) !!}
 
-          {{ Form::open(array('url' => 'permissions', 'class' => 'form-group')) }}
-          {{ Form::text('name', '', array('class' => 'form-control')) }}
-
-          <hr>
+        <hr>
           @if(!$roles->isEmpty())
             <h6>Assign Permission to Roles</h6>
           @foreach ($roles as $role)
@@ -30,13 +29,28 @@
             {{ Form::label($role->name, ucfirst($role->name)) }}<br>
           @endforeach
           @endif
+
+          {!! Form::submit('Add', array('class' => 'btn btn-success')) !!}
+          {!! Form::close() !!}
+          
         </div>
-        <div class="card-footer">
 
 
-          {{ Form::submit('Add', array('class' => 'btn btn-success')) }}
-          {{ Form::close() }}
-            </div>
+        <div class="col-md-6">
+          <ul class="list-group">
+            @foreach ($permissions as $permission)
+
+              <li class="list-group-item d-flex justify-content-between align-items-center">
+               <strong>{{ $permission->name }}</strong> 
+              <span class="">
+                <a href="{{ route('permissions.edit', $permission->id) }}" class="fa fa-edit"></a>
+                <em class="ml-3"></em>
+                <a href="{{ route('permissions_destroy', $permission->id) }}" class="fa fa-trash"></a>
+              </span>
+              </li>
+            @endforeach
+          </ul>
+        </div>
           </div>
         </div>
       </div>

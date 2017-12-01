@@ -25,7 +25,7 @@ class RoleController extends Controller {
     public function index() {
         $roles = Role::all();//Get all roles
         $permissions = Permission::all();
-        return view('admin.users.roles')->with('roles', $roles)->with('permissions', $permissions);
+        return view('admin.roles.index')->with('roles', $roles)->with('permissions', $permissions);
     }
 
     /**
@@ -35,7 +35,7 @@ class RoleController extends Controller {
      */
     public function create() {
         $permissions = Permission::all();//Get all permissions
-        return view('admin.roles', ['permissions'=>$permissions]);
+        return view('admin.roles.index', ['permissions'=>$permissions]);
     }
 
     /**
@@ -79,7 +79,7 @@ class RoleController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function show($id) {
-        return redirect('admin');
+        return redirect('admin.index');
     }
 
     /**
@@ -91,8 +91,7 @@ class RoleController extends Controller {
     public function edit($id) {
         $role = Role::findOrFail($id);
         $permissions = Permission::all();
-
-        return view('admin.roles', compact('role', 'permissions'));
+        return view('admin.roles.edit', compact('role', 'permissions'));
     }
 
     /**
@@ -127,8 +126,7 @@ class RoleController extends Controller {
         }
 
         return redirect()->route('roles.index')
-            ->with('flash_message',
-             'Role'. $role->name.' updated!');
+            ->with('flash_message','Role'. $role->name.' updated!');
     }
 
     /**
