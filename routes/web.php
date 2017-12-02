@@ -47,3 +47,8 @@ Route::get('roles/{id}/destroy/', [
     'as' => 'role_destroy',
     'uses' => 'RoleController@destroy'
 ]);
+
+Route::get('categories/{id}/destroy/', [
+    'as' => 'categories_destroy',
+    'uses' => 'CategoryController@destroy'
+]);

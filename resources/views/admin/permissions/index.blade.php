@@ -58,34 +58,6 @@
   </div>
 </div>
 
-{{--     <div class="uk-card uk-card-default uk-card-body">
-    <h1>Visi leidimai</h1>
-    <div class="uk-overflow-auto">
-          <table class="uk-table uk-table-divider">
-            <thead>
-              <tr>
-                <td>Permissions</td>
-                <td>Operation</td>
-              </tr>
-            </thead>
-          <tbody>
-            @foreach ($permissions as $permission)
-            <tr>
-              <td>{{ $permission->name }}</td>
-              <td>
-                <ul class="uk-iconnav">
-                  <!-- <li><a href="{{ route('permissions.edit', $permission->id) }}" uk-icon="icon: file-edit"></a></li> -->
-                  <li><a href="{{ route('permissions_destroy', $permission->id) }}" uk-icon="icon: trash"></a></li>
-                </ul>
-              </td>
-            </tr>
-          @endforeach
-          </tbody>
-        </table>
-   </div>
-  </div>
-</div> --}}
-
 </body>
 
 

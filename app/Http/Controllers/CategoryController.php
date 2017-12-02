@@ -14,7 +14,10 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        return view('functions.categories.index');
+
+        $categories = Category::all();
+        return view('functions.categories.index')
+            ->with('categories', $categories);
     }
 
     /**
@@ -37,7 +40,7 @@ class CategoryController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'name'=>'required|max:40',
+            'name'=>'required|max:40|unique:categories,name',
         ]);
 
         $name = $request['name'];
@@ -71,7 +74,9 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
-        //
+        $categories = Category::where('id', $id)->first();
+        return view('functions.categories.edit')
+            ->with('categories', $categories);
     }
 
     /**
@@ -82,8 +87,21 @@ class CategoryController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
+
     {
-        //
+        $this->validate($request, [
+            'name'=>'required|max:40', //Unique, bet turi ignoruot jei vertė ta pati.
+            'activity' => 'required|max:50',
+        ]);
+
+        
+        $category = Category::where('id', $id)->first();
+        $category->name = $request['name'];
+        $category->activity = $request['activity'];
+        $category->update();
+
+        return redirect('categories')
+            ->with('flash_message', 'Category updated!');
     }
 
     /**
@@ -94,6 +112,12 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        //
+    $category = Category::findOrFail($id);
+
+        $category->delete();
+
+        return redirect()->back()
+            ->with('flash_message',
+             'Category deleted!');
     }
 }

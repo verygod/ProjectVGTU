@@ -47,10 +47,10 @@
           <a class="dropdown-item" href="{{ route('permissions.index') }}">Permissions</a>
           <a class="dropdown-item" href="{{ route('roles.index') }}">Roles</a>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="{{ url('home') }}">Funkcijos</a>
+          <a class="dropdown-item" href="{{ url('home') }}">To->Do</a>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="{{ route('items.index') }}">Darbai</a>
-          <a class="dropdown-item" href="{{ route('categories.index') }}">Kategorijos</a>
+          <a class="dropdown-item" href="{{ route('items.index') }}">Works</a>
+          <a class="dropdown-item" href="{{ route('categories.index') }}">Categories</a>
 
         </div>
       </li>
