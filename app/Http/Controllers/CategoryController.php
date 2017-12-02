@@ -14,8 +14,6 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        // $users = User::all();
-        // return view('admin.users.index')->with('users', $users);
         return view('functions.categories.index');
     }
 
@@ -26,7 +24,8 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        //
+        // $roles = Role::get(); //Get all roles
+        // return view('admin.permissions.index')->with('roles', $roles);
     }
 
     /**
@@ -37,7 +36,20 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'name'=>'required|max:40',
+        ]);
+
+        $name = $request['name'];
+        $category = new Category();
+        $category->name = $name;
+        $category->activity = 'active';
+
+        $category->save();
+
+        return back()->with('flash_message',
+             'Category '. $category->name.' added!');
+
     }
 
     /**
