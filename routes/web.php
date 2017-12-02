@@ -27,6 +27,8 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('permissions', 'PermissionController');
 Route::resource('roles', 'RoleController');
 Route::resource('users', 'UserController');
+Route::resource('categories', 'CategoryController');
+Route::resource('items', 'ItemController');
 
 
 /* Destroy routes */
