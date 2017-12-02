@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Category;	
+use App\Category;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
@@ -37,7 +37,18 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      $this->validate($request, [
+          'name'=>'required|max:40',
+      ]);
+      $name = $request['name'];
+      $category = new category();
+      $category ->name=$name;
+      $category->activity='1';
+
+      $category->save();
+
+      return back();
+
     }
 
     /**
