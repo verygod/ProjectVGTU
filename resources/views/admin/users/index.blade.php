@@ -36,7 +36,7 @@
                     <td>
                       <ul class="">
                         <a href="{{ route('users.edit', $user->id) }}" class="fa fa-edit" aria-hidden="true"></a>
-                        @if( Auth::user()->name  != $user->name)
+                        @if( Auth::user()->id  != $user->id)
                           <a href="{!! route('users_destroy', $user->id) !!}" class="fa fa-trash-o" aria-hidden="true"></a>
                         @endif
                       </ul>
