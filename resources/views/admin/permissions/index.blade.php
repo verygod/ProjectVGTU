@@ -9,7 +9,7 @@
   <div class="row mt-4">
     <div class="col-md">
       <div class="card">
-        <div class="card-header text-white bg-success mb-3">
+        <div class="card-header mb-3">
           Permissions
         </div>
 

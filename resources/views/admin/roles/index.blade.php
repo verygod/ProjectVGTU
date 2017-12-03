@@ -5,7 +5,7 @@
     <div class="row">
       <div class="col-md">
         <div class="card">
-          <div class="card-header text-white bg-success mb-3">
+          <div class="card-header mb-3">
             Add Role
           </div>
           <div class="card-body">
@@ -13,20 +13,28 @@
 
               <div class="col-md">
                 <div class="row">
+                  <div class="col-md">
                   {!! Form::open(['route' => 'roles.store']) !!}
                   {!! Form::text('name', '', array('class' => 'form-control', 'placeholder' => 'role name')) !!}
+                  </div>
                 </div>
                 <div class="row">
+                  <div class="col-md mt-3 text-center text-muted">
                   @foreach ($permissions as $permission)
-                  {!! Form::checkbox('permissions[]',  $permission->id ) !!}
-                  {!! Form::label($permission->name, ucfirst($permission->name)) !!}
+                    <div class="checkbox">
+                      <input id="{{$permission->id}}" type="checkbox" name="permissions[]" >
+                        <label for="{{$permission->id}}">{{$permission->name}}</label>
+                    </div>
                   @endforeach
                 </div>
+                </div>
                 <div class="row">
+                  <div class="col-md">
                   {!! Form::submit('Add!', array('class' => 'btn btn-success')) !!}
                   {!! Form::close() !!}
                 </div>
               </div>
+            </div>
 
               <div class="col-md">
                 <ul class="list-group">
