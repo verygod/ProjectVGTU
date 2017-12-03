@@ -21,10 +21,92 @@
     display:none
     }
     </style>
-  </head>
-  <body>
-    <div class="landing-page sidebar-collapse">
-      <nav class="navbar navbar-expand-lg bg-primary fixed-top navbar-transparent" color-on-scroll="300" style="z-index: 999">
+
+   <nav class="navbar navbar-expand-lg bg-primary fixed-top navbar-transparent" id="login-menu" color-on-scroll="400">
+        <div class="container">
+            <div class="dropdown button-dropdown">
+                <a href="#pablo" id="navbarDropdown">
+                    <span class="button-bar"></span>
+                    <span class="button-bar"></span>
+                    <span class="button-bar"></span>
+                </a>
+            </div>
+
+            <div class="navbar-translate">
+                <a class="navbar-brand" href="">Laravel</a>
+                <button class="navbar-toggler navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-bar bar1"></span>
+                    <span class="navbar-toggler-bar bar2"></span>
+                    <span class="navbar-toggler-bar bar3"></span>
+                </button>
+            </div>
+
+            <div class="collapse navbar-collapse justify-content-end" id="navigation" data-nav-image="../assets/img/blurred-image-1.jpg">
+
+                <ul class="navbar-nav">
+                @guest
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('login') }}">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('register') }}">Register</a>
+                    </li>
+                @else
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url('profile') }}">{{ Auth::user()->name }}</a>
+                    </li>
+                    <li class="nav-item">
+                    <div class="dropdown" style="z-index: 999">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          <i class="fa fa-cogs" aria-hidden="true"></i>
+                        </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-header">Admin Panel</a>
+                        <a class="dropdown-item" href="{{ route('users.index') }}">Users</a>
+                        <a class="dropdown-item" href="{{ route('permissions.index') }}">Permissions</a>
+                        <a class="dropdown-item" href="{{ route('roles.index') }}">Roles</a>
+                        <a class="dropdown-header">Admin extra</a>
+                        <a class="dropdown-item" href="{{ url('home') }}">To->Do</a>
+                        <a class="dropdown-header">Function Panel</a>
+                        <a class="dropdown-item" href="{{ route('items.index') }}">Works</a>
+                        <a class="dropdown-item" href="{{ route('categories.index') }}">Categories</a>
+                    </div>
+                    </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                            <i class="fa fa-lock"></i>
+                            <p>Logout</p>
+                        </a>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">{{ csrf_field() }}</form>
+                    </li>
+            
+                @endguest
+                        <hr>
+                    <li class="nav-item">
+                        <a class="nav-link" rel="tooltip" title="Follow us on Twitter" data-placement="bottom" href="https://twitter.com/CreativeTim" target="_blank">
+                            <i class="fa fa-twitter"></i>
+                            <p class="d-lg-none d-xl-none">Twitter</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" rel="tooltip" title="Like us on Facebook" data-placement="bottom" href="https://www.facebook.com/CreativeTim" target="_blank">
+                            <i class="fa fa-facebook-square"></i>
+                            <p class="d-lg-none d-xl-none">Facebook</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" rel="tooltip" title="Follow us on Instagram" data-placement="bottom" href="https://www.instagram.com/CreativeTimOfficial" target="_blank">
+                            <i class="fa fa-instagram"></i>
+                            <p class="d-lg-none d-xl-none">Instagram</p>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+{{--       <nav class="navbar navbar-expand-lg bg-primary fixed-top navbar-transparent" color-on-scroll="300" style="z-index: 999">
         <div class="container">
           <a class="navbar-brand" href="{{ url('/') }}">{{ config('app.name', 'Laravel') }}</a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -35,9 +117,7 @@
               @guest
               @else
               <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  Admin
-                </a>
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Admin</a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                   <a class="dropdown-item" href="{{ route('users.index') }}">Users</a>
                   <a class="dropdown-item" href="{{ route('permissions.index') }}">Permissions</a>
@@ -80,9 +160,9 @@
             </li>
             @endguest
           </ul>
-        </div>
-      </div>
+        </div> --}}
     </nav>
+
     <?php if(Session::has('flash_message')): ?>
     <div class="alert alert-success alert-dismissible fade show col-md-4 mt-4 mx-auto" role="alert">
       <strong> <?php echo session('flash_message'); ?></strong>
@@ -104,5 +184,5 @@
   <script type="text/javascript" src="{{ asset('js/plugins/nouislider.min.js') }}"></script>
   <script type="text/javascript" src="{{ asset('js/plugins/bootstrap-datepicker.js') }}"></script>
   <script type="text/javascript" src="{{ asset('js/now-ui-kit.js?v=1.1.0') }}"></script>
-</body>
-</html>
+</nav>
+</head>

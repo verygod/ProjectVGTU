@@ -1,9 +1,6 @@
 @extends('layouts.user')
 @section('content')
-
 <body class="profile-page sidebar-collapse">
-    <!-- Navbar -->
-    <!-- End Navbar -->
     <div class="wrapper">
         <div class="page-header page-header-small" filter-color="orange">
             <div class="page-header-image" data-parallax="true" style="background-image: url('../assets/img/bg5.jpg');">
