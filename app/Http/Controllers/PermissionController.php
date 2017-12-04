@@ -91,7 +91,8 @@ class PermissionController extends Controller {
     */
     public function edit($id) {
         $permission = Permission::findOrFail($id);
-        return view('admin.permissions.edit', compact('permission'));
+        $hasPermissions = DB::Table('role_has_permissions')->findOrFail($id);
+        return view('admin.permissions.edit', compact('permission'), compact('hasPermissions'));
     }
 
     /**

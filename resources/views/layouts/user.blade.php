@@ -4,7 +4,7 @@
    <nav class="navbar navbar-expand-lg bg-white fixed-top navbar-transparent sidebar-collapse" id="login-menu" color-on-scroll="400">
         <div class="container">
             <div class="dropdown button-dropdown">
-                <a href="{{ url('/') }}" id="navbarDropdown">
+                <a href="{{ url('home') }}" id="navbarDropdown">
                     <span class="button-bar"></span>
                     <span class="button-bar"></span>
                     <span class="button-bar"></span>
@@ -32,19 +32,21 @@
                     </li>
                 @else
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ url('profile') }}">{{ Auth::user()->name }}</a>
+                        <a class="nav-link" href="{{ url('profile') }}">
+                            <i class="fa fa-user" aria-hidden="true"></i>
+                         <p class="d-lg-none d-xl-none">{{ Auth::user()->name }}</p></a>
                     </li>
                     @include('layouts.misc.admin')
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                        <a class="nav-link" data-toggle="modal" data-target="#myModal" >
                             <i class="fa fa-lock"></i>
-                            <p>Logout</p>
+                            <p class="d-lg-none d-xl-none" >Logout</p>
                         </a>
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">{{ csrf_field() }}</form>
                     </li>
             
                 @endguest
                         <hr>
+                @guest
                     <li class="nav-item">
                         <a class="nav-link" rel="tooltip" title="Follow us on Twitter" data-placement="bottom" href="https://twitter.com/CreativeTim" target="_blank">
                             <i class="fa fa-twitter"></i>
@@ -63,10 +65,29 @@
                             <p class="d-lg-none d-xl-none">Instagram</p>
                         </a>
                     </li>
+                @endguest
                 </ul>
             </div>
         </div>
     </nav>
+
+
+<!-- Modal Core -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">Are you sure you want to logout?</h4>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default btn-simple" data-dismiss="modal">No</button>
+        <a class="btn btn-danger"" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
+        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">{{ csrf_field() }}</form>
+      </div>
+    </div>
+  </div>
+</div>
 
     <?php if(Session::has('flash_message')): ?>
     <div class="alert alert-success alert-dismissible fade show col-md-4 mt-4 mx-auto" role="alert">

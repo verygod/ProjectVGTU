@@ -15,22 +15,28 @@
                 <div class="row">
                   <div class="col-md">
                   {!! Form::open(['route' => 'roles.store']) !!}
-                  {!! Form::text('name', '', array('class' => 'form-control', 'placeholder' => 'role name')) !!}
+                    <div class="input-group">
+                      <input type="text" class="form-control" placeholder="Role name..." name="name">
+                      <span class="input-group-addon">
+                        <button type="submit" class="btn btn-neutral btn-sm now-ui-icons ui-1_simple-add">
+                        </button>
+                      </span>
+                    </div>
                   </div>
                 </div>
                 <div class="row">
-                  <div class="col-md mt-3 text-center text-muted">
+                  <div class="col-md-6 mt-3 text-muted mx-auto">
+                    <h6 class="text-center mb-3">Assign Permission to Roles</h6>
                   @foreach ($permissions as $permission)
                     <div class="checkbox">
-                      <input id="{{$permission->id}}" type="checkbox" name="permissions[]" >
-                        <label for="{{$permission->id}}">{{$permission->name}}</label>
+                      <input id="{{$permission->id}}" type="checkbox" name="permissions[]" value="{{$permission->id}}">
+                      <label for="{{$permission->id}}">{{$permission->name}}</label>
                     </div>
                   @endforeach
                 </div>
                 </div>
                 <div class="row">
                   <div class="col-md">
-                  {!! Form::submit('Add!', array('class' => 'btn btn-success')) !!}
                   {!! Form::close() !!}
                 </div>
               </div>
@@ -42,7 +48,7 @@
                   <li class="list-group-item d-flex justify-content-between align-items-center">
                     <strong>{{ $role->name }}</strong>
                     <small class="text-muted">Donec id elit non mi porta.</small>
-                    <span class="">
+                    <span>
                       <a href="{{ route('roles.edit', $role->id) }}" class="fa fa-edit"></a>
                       <em class="ml-3"></em>
                       <a href="{{ route('role_destroy', $role->id) }}" class="fa fa-trash"></a>

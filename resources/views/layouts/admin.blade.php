@@ -4,7 +4,7 @@
 <nav class="navbar navbar-expand-lg bg-white sidebar-collapse" id="login-menu" color-on-scroll="400">
         <div class="container">
             <div class="dropdown button-dropdown">
-                <a href="{{ url('/') }}" id="navbarDropdown">
+                <a href="{{ url('home') }}" id="navbarDropdown">
                     <span class="button-bar"></span>
                     <span class="button-bar"></span>
                     <span class="button-bar"></span>
@@ -38,11 +38,10 @@
                     </li>
                     @include('layouts.misc.admin')
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                        <a class="nav-link" data-toggle="modal" data-target="#myModal" >
                             <i class="fa fa-lock"></i>
-                            <p class="d-lg-none d-xl-none">Logout</p>
+                            <p class="d-lg-none d-xl-none" >Logout</p>
                         </a>
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">{{ csrf_field() }}</form>
                     </li>
             
                 @endguest
@@ -71,6 +70,25 @@
             </div>
         </div>
     </nav>
+
+
+<!-- Modal Core -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">Are you sure you want to logout?</h4>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default btn-simple" data-dismiss="modal">No</button>
+        <a class="btn btn-danger"" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
+        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">{{ csrf_field() }}</form>
+      </div>
+    </div>
+  </div>
+</div>
+
 
     <?php if(Session::has('flash_message')): ?>
     <div class="alert alert-success alert-dismissible fade show col-md-4 mt-4 mx-auto" role="alert">
