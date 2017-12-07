@@ -15,10 +15,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('profile', function () {
-    return view('profile.index');
-});
+// Route::get('/{usernme}', function () {
+//     return view('profile.index');
+// });
 
+Route::get('uploads', function () {
+    return view('functions.items.index');
+});
 
 Auth::routes();
 
@@ -29,6 +32,7 @@ Route::resource('roles', 'RoleController');
 Route::resource('users', 'UserController');
 Route::resource('categories', 'CategoryController');
 Route::resource('items', 'ItemController');
+Route::get('profile/{username}', 'ProfileController@show');
 
 
 /* Destroy routes */

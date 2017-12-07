@@ -1,10 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Uploads;
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
-class ItemController extends Controller
+class SoundController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +14,7 @@ class ItemController extends Controller
      */
     public function index()
     {
-        return view('functions.profile.index');
+        //
     }
 
     /**

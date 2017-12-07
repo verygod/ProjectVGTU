@@ -12,7 +12,7 @@
             <a class="dropdown-header">Admin extra</a>
             <a class="dropdown-item" href="{{ url('home') }}">To->Do</a>
             <a class="dropdown-header">Function Panel</a>
-            <a class="dropdown-item" href="{{ route('items.index') }}">Works</a>
+            <a class="dropdown-item" href="{{ url('uploads') }}">Works</a>
             <a class="dropdown-item" href="{{ route('categories.index') }}">Categories</a>
         </div>
     </div>

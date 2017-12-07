@@ -32,15 +32,15 @@
                     </li>
                 @else
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ url('profile') }}">
+                        <a class="nav-link" href="{{ route('profile.show', Auth::user()->id) }}">
                             <i class="fa fa-user" aria-hidden="true"></i>
-                         <p class="d-lg-none d-xl-none">{{ Auth::user()->name }}</p></a>
+                            <p class="d-lg-none d-xl-none">{{ Auth::user()->name }}</p></a>
                     </li>
                     @include('layouts.misc.admin')
                     <li class="nav-item">
                         <a class="nav-link" data-toggle="modal" data-target="#myModal" >
                             <i class="fa fa-lock"></i>
-                            <p class="d-lg-none d-xl-none" >Logout</p>
+                            <p class="d-lg-none d-xl-none">Logout</p>
                         </a>
                     </li>
             
