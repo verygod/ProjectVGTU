@@ -32,9 +32,15 @@ Route::resource('roles', 'RoleController');
 Route::resource('users', 'UserController');
 Route::resource('categories', 'CategoryController');
 Route::resource('items', 'ItemController');
+Route::resource('profile', 'ProfileController');
 Route::get('profile/{username}', 'ProfileController@show')->name('username');
 
 /* Destroy routes */
+
+Route::get('profile/edit/{id}', [
+    'as' => 'edit_profile',
+    'uses' => 'ProfileController@edit'
+]);
 
 Route::get('users/{id}/destroy/', [
     'as' => 'users_destroy',

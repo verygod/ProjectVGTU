@@ -10,7 +10,15 @@
                     <div class="photo-container">
                         <img src="../assets/img/ryan.jpg" alt="">
                     </div>
-                    <h3 class="title">Ryan Scheinder</h3>
+
+
+                    <h3 class="title">Ryan Scheinder
+                        @if(Auth::id() == $user->id)
+                        <a href="{{ route('edit_profile', Auth::id()) }}">
+                        <i class="fa fa-pencil-square-o text-muted" aria-hidden="true"></i>
+                        </a>
+                        @endif
+                    </h3>
                     <p class="category">email@email.io (only scout)</p>
                     <div class="content">
                         <div class="social-description">
