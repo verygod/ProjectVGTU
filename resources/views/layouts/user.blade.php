@@ -32,15 +32,18 @@
                     </li>
                 @else
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('profile.show', Auth::user()->id) }}">
+                        @php 
+                        $username = Auth::user(); 
+                        @endphp
+                        <a class="nav-link" href="{{ url('profile', $username->id) }}">
                             <i class="fa fa-user" aria-hidden="true"></i>
-                            <p class="d-lg-none d-xl-none">{{ Auth::user()->name }}</p></a>
+                         <p class="d-lg-none d-xl-none">{{ $username->name }}</p></a>
                     </li>
                     @include('layouts.misc.admin')
                     <li class="nav-item">
                         <a class="nav-link" data-toggle="modal" data-target="#myModal" >
                             <i class="fa fa-lock"></i>
-                            <p class="d-lg-none d-xl-none">Logout</p>
+                            <p class="d-lg-none d-xl-none" >Logout</p>
                         </a>
                     </li>
             
@@ -89,6 +92,7 @@
   </div>
 </div>
 
+
     <?php if(Session::has('flash_message')): ?>
     <div class="alert alert-success alert-dismissible fade show col-md-4 mt-4 mx-auto" role="alert">
       <strong> <?php echo session('flash_message'); ?></strong>
@@ -100,5 +104,6 @@
     
     @include ('layouts.error')
     @yield('content')
+  </div>
 
-<body class="sidebar-collapse">
+  <body class="sidebar-collapse">

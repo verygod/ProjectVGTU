@@ -14,9 +14,9 @@ class ProfileController extends Controller
     }
 
 
-    public function show($id) {
-        $user = User::findOrFail($id);//Get all roles
-        return view('functions.items.index')->with('user', $user);
+    public function show($username) {
+        $user = User::findOrFail($username);
+        return view('profile.index')->with('user', $user);
     }
 
 }

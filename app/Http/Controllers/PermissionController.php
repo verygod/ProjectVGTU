@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 
+use Illuminate\Http\Request;
 use Auth;
 
 //Importing laravel-permission models
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
+use Illuminate\Support\Facades\Artisan;
 
 use Session;
 
@@ -57,6 +58,8 @@ class PermissionController extends Controller {
         $roles = $request['roles'];
 
         $permission->save();
+
+        Artisan::call('permission:create-permission', [$name]);
 
         if (!empty($request['roles'])) { //If one or more role is selected
             foreach ($roles as $role) {

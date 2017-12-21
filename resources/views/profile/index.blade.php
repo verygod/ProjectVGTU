@@ -11,19 +11,11 @@
                         <img src="../assets/img/ryan.jpg" alt="">
                     </div>
                     <h3 class="title">Ryan Scheinder</h3>
-                    <p class="category">Photographer</p>
+                    <p class="category">email@email.io (only scout)</p>
                     <div class="content">
                         <div class="social-description">
                             <h2>26</h2>
-                            <p>Comments</p>
-                        </div>
-                        <div class="social-description">
-                            <h2>26</h2>
-                            <p>Comments</p>
-                        </div>
-                        <div class="social-description">
-                            <h2>48</h2>
-                            <p>Bookmarks</p>
+                            <p>Uploads</p>
                         </div>
                     </div>
                 </div>
@@ -32,12 +24,15 @@
         <div class="section">
             <div class="container">
                 <div class="button-container">
-                    <a href="#button" class="btn btn-primary btn-round btn-lg">Follow</a>
+                    {{-- <a href="#button" class="btn btn-primary btn-round btn-lg">Follow</a> --}}
                     <a href="#button" class="btn btn-default btn-round btn-lg btn-icon" rel="tooltip" title="Follow me on Twitter">
                         <i class="fa fa-twitter"></i>
                     </a>
                     <a href="#button" class="btn btn-default btn-round btn-lg btn-icon" rel="tooltip" title="Follow me on Instagram">
                         <i class="fa fa-instagram"></i>
+                    </a>
+                    <a href="#button" class="btn btn-default btn-round btn-lg btn-icon" rel="tooltip" title="Follow me on Facebook">
+                        <i class="fa fa-facebook"></i>
                     </a>
                 </div>
                 <h3 class="title">About me</h3>

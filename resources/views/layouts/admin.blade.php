@@ -32,9 +32,12 @@
                     </li>
                 @else
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ url('profile') }}">
+                        @php 
+                        $username = Auth::user(); 
+                        @endphp
+                        <a class="nav-link" href="{{ url('profile', $username->id) }}">
                             <i class="fa fa-user" aria-hidden="true"></i>
-                         <p class="d-lg-none d-xl-none">{{ Auth::user()->name }}</p></a>
+                         <p class="d-lg-none d-xl-none">{{ $username->name }}</p></a>
                     </li>
                     @include('layouts.misc.admin')
                     <li class="nav-item">
