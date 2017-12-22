@@ -26,7 +26,6 @@ Route::get('uploads', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/atrask', 'AtraskController@index')->name('atrask');
 
 Route::resource('permissions', 'PermissionController');
 Route::resource('roles', 'RoleController');

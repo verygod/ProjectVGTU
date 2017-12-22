@@ -18,11 +18,8 @@
                     <span class="navbar-toggler-bar bar2"></span>
                     <span class="navbar-toggler-bar bar3"></span>
                 </button>
+            </div>
 
-            </div>
-            <div class="navbar-translate">
-            <a class="navbar-brand" href="{{ url('atrask') }}">Atrask</a>
-            </div>
             <div class="collapse navbar-collapse justify-content-end" id="navigation" data-nav-image="../assets/img/blurred-image-1.jpg">
 
                 <ul class="navbar-nav">
@@ -35,8 +32,8 @@
                     </li>
                 @else
                     <li class="nav-item">
-                        @php
-                        $username = Auth::user();
+                        @php 
+                        $username = Auth::user(); 
                         @endphp
                         <a class="nav-link" href="{{ url('profile', $username->id) }}">
                             <i class="fa fa-user" aria-hidden="true"></i>
@@ -49,7 +46,7 @@
                             <p class="d-lg-none d-xl-none" >Logout</p>
                         </a>
                     </li>
-
+            
                 @endguest
                         <hr>
                 @guest
@@ -104,7 +101,7 @@
       </button>
     </div>
     <?php endif; ?>
-
+    
     @include ('layouts.error')
     @yield('content')
   </div>
