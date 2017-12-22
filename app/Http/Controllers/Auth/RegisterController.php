@@ -3,9 +3,11 @@
 namespace App\Http\Controllers\Auth;
 
 use App\User;
+use App\Models\Profile;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Support\Facades\Auth;
 
 class RegisterController extends Controller
 {
@@ -62,10 +64,24 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+
+        $user =  User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
         ]);
+
+        $email=$data['email'];
+        $user = User::where('email', $email )->first();
+        // dd($user);
+
+        $profile = new Profile();
+            $profile->name = $data['name'];
+            $profile->email = $data['email'];
+            $profile->userid = $user->id;
+            $profile->save();
+
+    return $user;
+
     }
 }

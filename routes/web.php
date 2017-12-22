@@ -34,7 +34,7 @@ Route::resource('users', 'UserController');
 Route::resource('categories', 'CategoryController');
 Route::resource('items', 'ItemController');
 Route::resource('profile', 'ProfileController');
-Route::get('profile/{username}', 'ProfileController@show')->name('username');
+Route::get('profile/{id}', 'ProfileController@show')->name('id');
 
 /* Destroy routes */
 

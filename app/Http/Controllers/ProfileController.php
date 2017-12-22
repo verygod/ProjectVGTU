@@ -26,7 +26,8 @@ class ProfileController extends Controller
 
 
     public function show($id) {
-        $user = Profile::where('id',$id)->first();
+        $user = Profile::where('userid',$id)->first();
+        // dd($user);
         return view('profile.index')
             ->with('user', $user);
     }
