@@ -94,4 +94,21 @@ class AtraskController extends Controller
     {
         //
     }
+
+        public function search(Request $request)
+    {
+        $search = $request->id;
+        if (is_null($search))
+        {
+          return view('search');
+        }
+        else
+        {
+        $products = Upload::where('name','LIKE',"%{$search}%")->get();
+        return view('search')->with('products', $uploads);
+        }
+
+        // if ($request->is('admin'))
+    }
+
 }

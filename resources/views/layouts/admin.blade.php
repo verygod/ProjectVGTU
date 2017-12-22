@@ -30,7 +30,7 @@
                     <a class="nav-link" href="{{ route('register') }}">Register</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" data-toggle="tooltip" data-placement="bottom" title="Visi darbai" href="{{ url('atrask') }}">
+                    <a class="nav-link" data-toggle="tooltip" data-placement="bottom" title="Visi darbai" href="{{ url('find') }}">
                         <i class="fa fa-briefcase" aria-hidden="true"></i>
                         <p class="d-lg-none d-xl-none">Visi darbai</p>
                     </a>
@@ -45,7 +45,7 @@
                         <p class="d-lg-none d-xl-none">{{ $username->name }}</p></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" data-toggle="tooltip" data-placement="bottom" title="Visi darbai" href="{{ url('atrask') }}">
+                        <a class="nav-link" data-toggle="tooltip" data-placement="bottom" title="Visi darbai" href="{{ url('find') }}">
                             <i class="fa fa-briefcase" aria-hidden="true"></i>
                             <p class="d-lg-none d-xl-none">Visi darbai</p>
                         </a>
