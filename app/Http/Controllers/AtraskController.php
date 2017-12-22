@@ -19,7 +19,7 @@ class AtraskController extends Controller
         $uploads = Upload::all();
 
          return view('atrask')
-         ->with('x', $category)
+         ->with('a', $category)
          ->with('u', $uploads);
 
      }
@@ -53,7 +53,12 @@ class AtraskController extends Controller
      */
     public function show($id)
     {
-        //
+        $all = Category::all();
+        $uploads = Upload::where('category', $id)->get();
+
+      return view('atrask')
+              ->with('a', $all)
+              ->with('u', $uploads);
     }
 
     /**

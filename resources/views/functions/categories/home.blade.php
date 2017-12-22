@@ -61,13 +61,13 @@ div#columns:hover figure:not(:hover) {
 		<div class="container-fluid">
 			<div class="row">
 				<div class="col-md-12">
-					<ul class="nav nav-tabs bg-white justify-content-center">
+					<ul class="nav nav-tabs bg-white justify-content-center" role="tablist" data-background-color="black">
 						<li class="nav-item">
-							<a class="nav-link" href="{{ route('find.index') }}">Visi darbai</a>
+							<a class="btn btn-link" data-toggle="tab" href="#main" id="mainone" role="tab">Visi darbai</a>
 						</li>
-						@foreach($a as $category)
+						@foreach($x as $category)
 						<li class="nav-item">
-							<a class="nav-link" href="{{ route('find.show', $category->id) }}">{{$category->name}}</a>
+							<a class="btn btn-link" data-toggle="tab" href="#{{$category->name}}" id="{{$category->id}}" role="tab">{{$category->name}}</a>
 						</li>
 						@endforeach 
 					</ul>
@@ -88,7 +88,7 @@ div#columns:hover figure:not(:hover) {
 					@foreach($u as $upload)
 					<figure>
 						<a href="{{ url('profile', $upload->artist_ID) }}">
-							<img src="../{{$upload->url}}">
+							<img src="{{$upload->url}}">
 							<figcaption>{{$upload->name}}</figcaption>
 						</a>
 					</figure>

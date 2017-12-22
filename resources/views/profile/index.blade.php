@@ -1,7 +1,6 @@
 @extends('layouts.user')
 @section('content')
 <style type="text/css">
-
 #columns {
 column-width: 400px;
 column-gap: 15px;
@@ -21,7 +20,7 @@ display: inline-block;
 column-break-inside: avoid;
 }
 div#columns figure img {
-width: 100%; 
+width: 100%;
 height: auto;
 border-bottom: 1px solid #ccc;
 padding-bottom: 15px;
@@ -74,10 +73,12 @@ div#columns:hover figure:not(:hover) {
                     </a>
                     @endif
                     </h3>
+                    @role('scout')
                     <p class="category">
                         {{$user->email}} <br>
                         {{$user->university}} {{$user->faculty}}
                     </p>
+                    @endrole
                     <div class="content">
                         <div class="social-description">
                             @if(!empty($user->upload_count))
@@ -130,7 +131,6 @@ div#columns:hover figure:not(:hover) {
                             @endforeach
                         </div>
                     </div>
-                    <!-- Tab panes -->
                 </div>
             </div>
         </div>

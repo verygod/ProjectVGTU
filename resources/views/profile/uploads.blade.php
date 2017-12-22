@@ -55,11 +55,30 @@ div#columns:hover figure:not(:hover) {
 			<div class="col-md ml-auto mr-auto" id="columns">
 				@foreach($artist as $upload)
 				<figure>
-						<img src="../{{$upload->url}}">
-						<figcaption>{{$upload->name}} / DELETE</figcaption>
+					<img src="../{{$upload->url}}">
+					<figcaption>
+					{{$upload->name}}
+					<a class="btn btn-danger btn-sm" data-toggle="modal" data-target="#delUpload{{$upload->id}}" >Trinti</a>
+					</figcaption>
 				</figure>
 				@endforeach
 			</div>
 		</div>
 	</div>
+	@foreach($artist as $upload)
+	<div class="modal fade" id="delUpload{{$upload->id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					<h4 class="modal-title" id="myModalLabel">Ar tikrai norite trinti? Atstatyti šio žingsnio negalėsite.</h4>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default btn-simple" data-dismiss="modal">Ne</button>
+					<a class="btn btn-danger" href="{{ route('upload_destroy', $upload->id) }}">Trinti</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	@endforeach
 	@endsection

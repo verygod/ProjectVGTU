@@ -130,8 +130,13 @@ class UploadController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
-    {
-        //
+    public function destroy($id) {
+        $upload = Upload::findOrFail($id);
+
+        $upload->delete();
+
+        return back()->with('flash_message',
+             'Ištrinta!');
+
     }
 }

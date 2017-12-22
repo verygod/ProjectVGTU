@@ -28,6 +28,7 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/atrask', 'AtraskController@index')->name('atrask');
 
+route::resource('find', 'AtraskController');
 Route::resource('permissions', 'PermissionController');
 Route::resource('roles', 'RoleController');
 Route::resource('users', 'UserController');
@@ -42,6 +43,11 @@ Route::get('profile/{id}', 'ProfileController@show')->name('id');
 Route::get('profile/edit/{id}', [
     'as' => 'edit_profile',
     'uses' => 'ProfileController@edit'
+]);
+
+Route::get('upload/delete/{id}', [
+    'as' => 'upload_destroy',
+    'uses' => 'UploadController@destroy'
 ]);
 
 Route::get('users/{id}/destroy/', [
