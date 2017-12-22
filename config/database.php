@@ -47,13 +47,8 @@ return [
             'username' => env('DB_USERNAME', 'root'),
             'password' => env('DB_PASSWORD', 'root'),
             'unix_socket'   => '/Applications/MAMP/tmp/mysql/mysql.sock',
-<<<<<<< HEAD
             'charset' => 'utf8',
             'collation' => 'utf8_unicode_ci',
-=======
-            'charset' => 'utf8mb4',
-            'collation' => 'utf8mb4_unicode_ci',
->>>>>>> 08c1e166fcb7492dd5d7c2ee333f33a6959ef728
             'prefix' => '',
             'strict' => true,
             'engine' => null,
