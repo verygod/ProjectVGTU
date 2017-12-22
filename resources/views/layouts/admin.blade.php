@@ -1,7 +1,7 @@
 @component('layouts.misc.assets')
 @endcomponent
 
-<nav class="navbar navbar-expand-lg bg-white sidebar-collapse" id="login-menu" color-on-scroll="400">
+<nav class="navbar navbar-expand-lg bg-white sidebar-collapse" id="login-menu">
         <div class="container">
             <div class="dropdown button-dropdown">
                 <a href="{{ url('home') }}" id="navbarDropdown">

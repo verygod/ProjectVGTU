@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 
 use App\upload;
+use App\category;
 use App\Models\Profile;
 
 class UploadController extends Controller
@@ -18,7 +19,8 @@ class UploadController extends Controller
      */
     public function index()
     {
-        return view('uploads.index');
+    	$category = category::all();
+        return view('uploads.index')->with('c', $category);
     }
 
     /**
@@ -60,6 +62,7 @@ class UploadController extends Controller
 
           $product = new upload();
           $product->name = $request['name'];
+          $product->category = $request['category'];
           $product->artist_ID = Auth::id();
           $product->artist_username = Auth::user()->name;
           $product->artist_name = Auth::user()->name;

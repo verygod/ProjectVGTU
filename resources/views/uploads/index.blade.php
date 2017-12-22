@@ -24,13 +24,13 @@
               <div class="col-md-12">
                   <select class="custom-select" name="category" style="width: 100%">
                     <option>-</option>
-{{--                     @if(!empty($u))
-                      @foreach($u as $category)
-                        <option value="{{ $category->id }}">{{$category->categoryname}}</option>
+                @if(!empty($c))
+                      @foreach($c as $category)
+                        <option value="{{ $category->id }}">{{$category->name}}</option>
                       @endforeach
                     @else
                       Nėra kategorijų
-                    @endif --}}
+                    @endif
                 </select>
               </div>
             </div>    
@@ -38,7 +38,7 @@
             <div class="row mt-3">
               <div class="col-md-12">
                 <label class="custom-file mx-auto" >
-                  <input type="file" id="url" class="custom-file-input" >
+                  <input type="file" id="url" name="url" class="custom-file-input" >
                   <span class="custom-file-control" ></span>
                 </label>
               </div>
