@@ -7,23 +7,36 @@
             </div>
             <div class="container">
                 <div class="content-center">
+              @if(empty($user->profile_image))
                     <div class="photo-container">
-                        <img src="../assets/img/ryan.jpg" alt="">
+                        <img src="../../assets/img/ryan.jpg" alt="">
                     </div>
-
-
-                    <h3 class="title">Ryan Scheinder
+              @else
+                    <div class="photo-container">
+                        <img src="{{$user->profile_image}}" alt="">
+                    </div> 
+              @endif
+                    <h3 class="title">{{$user->name}} {{$user->surname}} 
                         @if(Auth::id() == $user->id)
                         <a href="{{ route('edit_profile', Auth::id()) }}">
                         <i class="fa fa-pencil-square-o text-muted" aria-hidden="true"></i>
                         </a>
                         @endif
                     </h3>
-                    <p class="category">email@email.io (only scout)</p>
+
+                    <p class="category">
+                        {{$user->email}} <br> 
+                        {{$user->university}} {{$user->faculty}}
+                    </p>
+
                     <div class="content">
                         <div class="social-description">
-                            <h2>26</h2>
-                            <p>Uploads</p>
+                            @if(!empty($user->upload_count))
+                                <h2>{{$user->upload_count}}</h2>
+                            @else
+                                <h2>0</h2>
+                            @endif
+                            <p>Įkeltų darbų</p>
                         </div>
                     </div>
                 </div>
@@ -31,23 +44,38 @@
         </div>
         <div class="section">
             <div class="container">
-                <div class="button-container">
-                    {{-- <a href="#button" class="btn btn-primary btn-round btn-lg">Follow</a> --}}
+                <div class="button-container mb-5">
+
+                    @if(!empty($user->twitter))
                     <a href="#button" class="btn btn-default btn-round btn-lg btn-icon" rel="tooltip" title="Follow me on Twitter">
                         <i class="fa fa-twitter"></i>
                     </a>
+                    @endif
+
+                    @if(!empty($user->instagram))
                     <a href="#button" class="btn btn-default btn-round btn-lg btn-icon" rel="tooltip" title="Follow me on Instagram">
                         <i class="fa fa-instagram"></i>
                     </a>
+                    @endif
+
+                    @if(!empty($user->facebook))
                     <a href="#button" class="btn btn-default btn-round btn-lg btn-icon" rel="tooltip" title="Follow me on Facebook">
                         <i class="fa fa-facebook"></i>
                     </a>
+                    @endif
                 </div>
-                <h3 class="title">About me</h3>
-                <h5 class="description">An artist of considerable range, Ryan — the name taken by Melbourne-raised, Brooklyn-based Nick Murphy — writes, performs and records all of his own music, giving it a warm, intimate feel with a solid groove structure. An artist of considerable range.</h5>
+                <h3 class="title">Apie mane</h3>
+                @if(!empty($user->about))
+                <h5 class="description">
+                    {{$user->about}}
+                </h5>
+                @else
+                <h5 class="description">Kolkas nieko neužpildžiau, bet Jūs tik palaukit... :)</h5>
+                @endif
+
                 <div class="row">
                     <div class="col-md-6 ml-auto mr-auto">
-                        <h4 class="title text-center">My Portfolio</h4>
+                        <h4 class="title text-center">Portfolio</h4>
                         <div class="nav-align-center">
                             <ul class="nav nav-pills nav-pills-primary" role="tablist">
                                 <li class="nav-item">

@@ -13,11 +13,18 @@
         <div class="card-header">Redaguoti vartotoją</div> 
 
         <div class="card-body col-md-8 mx-auto">
-{{--             {{ Form::model($user, array('route' => array('users.update', $user->id), 'method' => 'PUT', 'class' => 'form-group')) }} --}}
+            {{ Form::model($user, array('route' => array('profile.update', $user->id), 'method' => 'PUT', 'class' => 'form-group')) }}
             <div class="row mt-3">
+
+              @if(empty($user->profile_image))
                     <div class="photo-container">
                         <img src="../../assets/img/ryan.jpg" alt="">
                     </div>
+              @else
+                    <div class="photo-container">
+                        <img src="{{$user->profile_image}}" alt="">
+                    </div> 
+              @endif
 
               <div class="col-md-12 mt-3">
                 {{ Form::text('profile_image', null, array('class' => 'form-control', 'placeholder' => 'Profilio nuotrauka')) }}
@@ -25,6 +32,12 @@
 
             </div>
 
+            <div class="row mt-3">
+              <div class="col-md-12">
+                {{ Form::email('email', null, array('class' => 'form-control', 'placeholder' => 'El.Paštas')) }}
+              </div>
+
+            </div>
             <div class="row mt-3">
               
               <div class="col-md-6">
@@ -76,15 +89,15 @@
               
               <div class="col-md-8 mx-auto">
                 <hr>
-                {{ Form::textarea('facebook', null, array('class' => 'form-control', 'placeholder' => 'About me...')) }}
+                {{ Form::textarea('about', null, array('class' => 'form-control', 'placeholder' => 'About me...')) }}
               </div>
 
 
             </div>
 
   
-{{--             {{ Form::submit('Update', array('class' => 'btn btn-primary')) }}
-            {{ Form::close() }} --}}
+            {{ Form::submit('Update', array('class' => 'btn btn-primary')) }}
+            {{ Form::close() }}
         </div>
       </div>
     </div>
