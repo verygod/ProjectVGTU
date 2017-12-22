@@ -19,13 +19,16 @@
                     <span class="navbar-toggler-bar bar3"></span>
                 </button>
             </div>
-            <div class="navbar-translate">
+{{--             <div class="navbar-translate">
                 <a class="navbar-brand" href="{{ url('atrask') }}">Atrask</a>
-            </div>
+            </div> --}}
             <div class="collapse navbar-collapse justify-content-end" id="navigation" data-nav-image="../assets/img/blurred-image-1.jpg">
 
                 <ul class="navbar-nav">
                 @guest
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url('atrask') }}">Atrask</a>
+                    </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('login') }}">Login</a>
                     </li>
@@ -41,11 +44,18 @@
                             <i class="fa fa-user" aria-hidden="true"></i>
                          <p class="d-lg-none d-xl-none">{{ $username->name }}</p></a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url('atrask') }}">Atrask</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('upload.index') }}">Įkelk</a>
+                    </li>
+
                     @include('layouts.misc.admin')
                     <li class="nav-item">
                         <a class="nav-link" data-toggle="modal" data-target="#myModal" >
                             <i class="fa fa-lock"></i>
-                            <p class="d-lg-none d-xl-none" >Logout</p>
+                            <p class="d-lg-none d-xl-none">Logout</p>
                         </a>
                     </li>
 

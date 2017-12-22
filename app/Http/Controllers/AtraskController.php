@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Category;
+use App\Upload;
+
 class AtraskController extends Controller
 {
     /**
@@ -13,9 +15,12 @@ class AtraskController extends Controller
      */
      public function index()
      {
-        $category = Category::all(); //paima viska is category. realiai to ir reikia.
-         return view('atrask')->with('x', $category);//padarysiu biski kad paristum
-         //realiai cia tau reiktu taip - ziurek.
+        $category = Category::all();
+        $uploads = Upload::all();
+
+         return view('atrask')
+         ->with('x', $category)
+         ->with('u', $uploads);
 
      }
 

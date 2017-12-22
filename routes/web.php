@@ -34,6 +34,7 @@ Route::resource('users', 'UserController');
 Route::resource('categories', 'CategoryController');
 Route::resource('items', 'ItemController');
 Route::resource('profile', 'ProfileController');
+route::resource('upload', 'UploadController');
 Route::get('profile/{id}', 'ProfileController@show')->name('id');
 
 /* Destroy routes */

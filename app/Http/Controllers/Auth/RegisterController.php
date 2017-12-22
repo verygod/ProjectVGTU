@@ -79,6 +79,7 @@ class RegisterController extends Controller
             $profile->name = $data['name'];
             $profile->email = $data['email'];
             $profile->userid = $user->id;
+            $profile->upload_count = '0';
             $profile->save();
 
     return $user;
