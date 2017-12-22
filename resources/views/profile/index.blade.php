@@ -16,8 +16,8 @@
                         <img src="{{$user->profile_image}}" alt="">
                     </div> 
               @endif
-                    <h3 class="title">{{$user->name}} {{$user->surname}} 
-                        @if(Auth::id() == $user->id)
+                    <h3 class="title">{{$user->name}} {{$user->surname}}
+                        @if(Auth::id() == $user->userid)
                         <a href="{{ route('edit_profile', Auth::id()) }}">
                         <i class="fa fa-pencil-square-o text-muted" aria-hidden="true"></i>
                         </a>
