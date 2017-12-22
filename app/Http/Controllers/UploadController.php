@@ -92,10 +92,14 @@ class UploadController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
-    {
-        //
+
+    public function show($id) {
+        $portfolio = Upload::where('artist_ID', $id)->get();
+        // dd($user);
+        return view('profile.uploads')
+            ->with('artist', $portfolio);
     }
+    
 
     /**
      * Show the form for editing the specified resource.

@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 
 use App\Models\Profile;
 use App\User;
+use App\Upload;
 
 class ProfileController extends Controller
 {
@@ -27,9 +28,11 @@ class ProfileController extends Controller
 
     public function show($id) {
         $user = Profile::where('userid',$id)->first();
+        $portfolio = Upload::where('artist_ID', $id)->get();
         // dd($user);
         return view('profile.index')
-            ->with('user', $user);
+            ->with('user', $user)
+            ->with('artist', $portfolio);
     }
 
     /**

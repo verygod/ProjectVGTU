@@ -12,7 +12,7 @@
           <div class="card-body">
             <div class="row">
               <div class="col-md">
-                {!! Form::open(['route' => 'permissions.store', 'method' => 'post', 'class' => 'form-group']) !!}
+                {!! Form::open(['route' => 'permissions.store', 'method' => 'put', 'class' => 'form-group']) !!}
                 <div class="row">
                   <div class="col-md">
                     <div class="input-group">
