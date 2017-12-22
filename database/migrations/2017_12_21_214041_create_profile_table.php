@@ -16,17 +16,17 @@ class CreateProfileTable extends Migration
         Schema::create('profile', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->string('surname');
-            $table->string('university');
-            $table->string('faculty');
-            $table->string('city');
-            $table->string('address');
-            $table->string('twitter');
-            $table->string('facebook');
-            $table->string('instagram');
-            $table->string('follow_count');
-            $table->string('profile_image');
-            $table->text('about');
+            $table->string('surname')->nullable();
+            $table->string('university')->nullable();
+            $table->string('faculty')->nullable();
+            $table->string('city')->nullable();
+            $table->string('address')->nullable();
+            $table->string('twitter')->nullable();
+            $table->string('facebook')->nullable();
+            $table->string('instagram')->nullable();
+            $table->string('follow_count')->nullable();
+            $table->string('profile_image')->nullable();
+            $table->text('about')->nullable();
             $table->timestamps();
         });
     }

@@ -15,7 +15,7 @@ class AddInfoToTable extends Migration
     {
         Schema::table('profile', function (Blueprint $table) {
             $table->string('email');
-            $table->string('upload_count');
+            $table->string('upload_count')->nullable();
         });
     }
 
